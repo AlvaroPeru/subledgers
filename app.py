@@ -288,7 +288,7 @@ def process(df, rules):
 def to_excel(df, suggestions):
     output = BytesIO()
 
-    with pd.ExcelWriter(output, engine="openpyxl") as writer:
+    with pd.ExcelWriter(output, engine="xlsxwriter") as writer:
         df.to_excel(writer, sheet_name="Clean Transactions", index=False)
         df[df["Flag"] != "OK"].to_excel(writer, sheet_name="Red Flags", index=False)
 
